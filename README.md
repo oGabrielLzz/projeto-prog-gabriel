@@ -1,4 +1,4 @@
-# projeto-prog-gabriel
+# projeto-prog-suporte-horario
 
 Gabriel lázaro
 Matrícula - 5800
