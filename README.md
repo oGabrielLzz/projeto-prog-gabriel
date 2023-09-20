@@ -4,7 +4,7 @@ Gabriel lázaro
 Matrícula - 5800
 
 Daniel Melo
-matricula - 3984
+Matrícula - 3984
 
 Tema Projeto a ser abordado "Planejamento diário de rotina e estudos" ( não confirmado )
 
