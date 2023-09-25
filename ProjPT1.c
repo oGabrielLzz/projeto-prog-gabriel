@@ -39,15 +39,9 @@ int main(){
   quinta  |
   sexta   |
 */ 
-//ler quantia de materias
-  int numMaterias;
-    printf("-Diga quantas materia voce tem?(Aceito de 3 a 5)\n");
-     scanf("%d", &numMaterias);
-//verificar se esta no limite definido
-  if (numMaterias < 3 || numMaterias > 5) {
-        printf("-Numero de materias invalido. Deve ser entre 3 e 5.\n");
-        return 1;
-    }
+//materias limitaadas a 3
+  int numMaterias = 3;
+    
  printf("\n");
 //armazenando as notas por materia (supondo a 5 notas por materia)
      int not = 5;
@@ -87,24 +81,199 @@ printf("\n");
          if(turno == 1){ //turno da 7:00 as 11:00
             if (j > 1 && j < 11) {
                 rotina[i][j] = 1;
-
-             }
+                if(pontosparaaprovacao[0] > pontosparaaprovacao[1] && pontosparaaprovacao[1] > pontosparaaprovacao[2]){
+                    if(j > 13 && j < 21){
+                        rotina[i][j] = 2;
+                    }
+                    if(j > 21 && j < 27 ){
+                        rotina[i][j] = 3;
+                    }
+                    if(j > 26 && j >=32){
+                        rotina[i][j] = 4;
+                    }
+                }else if(pontosparaaprovacao[0] > pontosparaaprovacao[2] && pontosparaaprovacao[2] > pontosparaaprovacao[1]){
+                    if(j > 13 && j < 21){
+                        rotina[i][j] = 2;
+                    }
+                    if(j > 21 && j < 27 ){
+                        rotina[i][j] = 4;
+                    }
+                    if(j > 26 && j >=32){
+                        rotina[i][j] = 3;
+                    }
+                }else if(pontosparaaprovacao[1] > pontosparaaprovacao[0] && pontosparaaprovacao[0] > pontosparaaprovacao[2]){
+                    if(j > 13 && j < 21){
+                        rotina[i][j] = 3;
+                    }
+                    if(j > 21 && j < 27 ){
+                        rotina[i][j] = 2;
+                    }
+                    if(j > 26 && j >=32){
+                        rotina[i][j] = 4;
+                    }
+                }else if(pontosparaaprovacao[1] > pontosparaaprovacao[2] && pontosparaaprovacao[2] > pontosparaaprovacao[0]){
+                    if(j > 13 && j < 21){
+                        rotina[i][j] = 3;
+                    }
+                    if(j > 21 && j < 27 ){
+                        rotina[i][j] = 4;
+                    }
+                    if(j > 26 && j >=32){
+                        rotina[i][j] = 2;
+                    }
+                }else if(pontosparaaprovacao[2] > pontosparaaprovacao[0] && pontosparaaprovacao[0] > pontosparaaprovacao[1]){
+                    if(j > 13 && j < 21){
+                        rotina[i][j] = 4;
+                    }
+                    if(j > 21 && j < 27 ){
+                        rotina[i][j] = 2;
+                    }
+                    if(j > 26 && j >=32){
+                        rotina[i][j] = 3;
+                    }
+                }else if(pontosparaaprovacao[2] > pontosparaaprovacao[1] && pontosparaaprovacao[1] > pontosparaaprovacao[0]){
+                    if(j > 13 && j < 21){
+                        rotina[i][j] = 4;
+                    }
+                    if(j > 21 && j < 27 ){
+                        rotina[i][j] = 3;
+                    }
+                    if(j > 26 && j >=32){
+                        rotina[i][j] = 2;
+                    }
 
           }else if(turno == 2){ //turno das 13:00 até as 17:00
              if(j > 13 && j < 23){
                rotina[i][j] = 1;
-
+               if(pontosparaaprovacao[0] > pontosparaaprovacao[1] && pontosparaaprovacao[1] > pontosparaaprovacao[2]){
+                    if(j > 1 && j < 11){
+                        rotina[i][j] = 2;
+                    }
+                    if(j > 23 && j < 29 ){
+                        rotina[i][j] = 3;
+                    }
+                    if(j > 28 && j >=32){
+                        rotina[i][j] = 4;
+                    }
+                }else if(pontosparaaprovacao[0] > pontosparaaprovacao[2] && pontosparaaprovacao[2] > pontosparaaprovacao[1]){
+                    if(j > 1 && j < 11){
+                        rotina[i][j] = 2;
+                    }
+                    if(j > 23 && j < 29 ){
+                        rotina[i][j] = 4;
+                    }
+                    if(j > 28 && j >= 32){
+                        rotina[i][j] = 3;
+                    }
+                }else if(pontosparaaprovacao[1] > pontosparaaprovacao[0] && pontosparaaprovacao[0] > pontosparaaprovacao[2]){
+                    if(j > 1 && j < 11){
+                        rotina[i][j] = 3;
+                    }
+                    if(j > 23 && j < 29 ){
+                        rotina[i][j] = 2;
+                    }
+                    if(j > 28 && j >= 32){
+                        rotina[i][j] = 4;
+                    }
+                }else if(pontosparaaprovacao[1] > pontosparaaprovacao[2] && pontosparaaprovacao[2] > pontosparaaprovacao[0]){
+                    if(j > 1 && j < 11){
+                        rotina[i][j] = 3;
+                    }
+                    if(j > 23 && j < 29 ){
+                        rotina[i][j] = 4;
+                    }
+                    if(j > 28 && j >=32){
+                        rotina[i][j] = 2;
+                    }
+                }else if(pontosparaaprovacao[2] > pontosparaaprovacao[0] && pontosparaaprovacao[0] > pontosparaaprovacao[1]){
+                    if(j > 1 && j < 11){
+                        rotina[i][j] = 4;
+                    }
+                    if(j > 23 && j < 29 ){
+                        rotina[i][j] = 2;
+                    }
+                    if(j > 28 && j >=32){
+                        rotina[i][j] = 3;
+                    }
+                }else if(pontosparaaprovacao[2] > pontosparaaprovacao[1] && pontosparaaprovacao[1] > pontosparaaprovacao[0]){
+                    if(j > 1 && j < 11){
+                        rotina[i][j] = 4;
+                    }
+                    if(j > 23 && j < 29 ){
+                        rotina[i][j] = 3;
+                    }
+                    if(j > 28 && j >=32){
+                        rotina[i][j] = 2;
+                    }
              }
-             
+
           }else{ //turno das 18:00 até 20:00
              if(j >= 24) {
                rotina[i][j] = 1;
-
-             }
-          }
-       }      
-    }
-
+               if(pontosparaaprovacao[0] > pontosparaaprovacao[1] && pontosparaaprovacao[1] > pontosparaaprovacao[2]){
+                    if(j > 1 && j < 11){
+                        rotina[i][j] = 2;
+                    }
+                    if(j > 13 && j < 19 ){
+                        rotina[i][j] = 3;
+                    }
+                    if(j > 18 && j >=22){
+                        rotina[i][j] = 4;
+                    }
+                }else if(pontosparaaprovacao[0] > pontosparaaprovacao[2] && pontosparaaprovacao[2] > pontosparaaprovacao[1]){
+                    if(j > 1 && j < 11){
+                        rotina[i][j] = 2;
+                    }
+                    if(j > 13 && j < 19 ){
+                        rotina[i][j] = 4;
+                    }
+                    if(j > 18 && j >=22){
+                        rotina[i][j] = 3;
+                    }
+                }else if(pontosparaaprovacao[1] > pontosparaaprovacao[0] && pontosparaaprovacao[0] > pontosparaaprovacao[2]){
+                    if(j > 1 && j < 11){
+                        rotina[i][j] = 3;
+                    }
+                    if(j > 13 && j < 19){
+                        rotina[i][j] = 2;
+                    }
+                    if(j > 18 && j >=22){
+                        rotina[i][j] = 4;
+                    }
+                }else if(pontosparaaprovacao[1] > pontosparaaprovacao[2] && pontosparaaprovacao[2] > pontosparaaprovacao[0]){
+                    if(j > 1 && j < 11){
+                        rotina[i][j] = 3;
+                    }
+                    if(j > 13 && j < 19){
+                        rotina[i][j] = 4;
+                    }
+                    if(j > 18 && j >=22){
+                        rotina[i][j] = 2;
+                    }
+                }else if(pontosparaaprovacao[2] > pontosparaaprovacao[0] && pontosparaaprovacao[0] > pontosparaaprovacao[1]){
+                    if(j > 1 && j < 11){
+                        rotina[i][j] = 4;
+                    }
+                    if(j > 13 && j < 19){
+                        rotina[i][j] = 2;
+                    }
+                    if(j > 18 && j >=22){
+                        rotina[i][j] = 3;
+                    }
+                }else if(pontosparaaprovacao[2] > pontosparaaprovacao[1] && pontosparaaprovacao[1] > pontosparaaprovacao[0]){
+                    if(j > 1 && j < 11){
+                        rotina[i][j] = 4;
+                    }
+                    if(j > 13 && j < 19){
+                        rotina[i][j] = 3;
+                    }
+                    if(j > 18 && j >=22){
+                        rotina[i][j] = 2;
+                    }
+                }
+            }
+         }
+      }    
 // impressão da matriz rotina
 
 /* Tabela de orientação na matriz
@@ -135,22 +304,6 @@ printf("\n");
             printf("%d\t", rotina[i][j]);
         }
         printf("\n");
-    }
-    return 0;
-} 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    }  
+return 0;
+}
