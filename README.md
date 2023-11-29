@@ -31,3 +31,14 @@ Passo 4: Geração de Plano de Estudos
   4.1 Crie um sistema que gere um plano de estudos com base nas prioridades identificadas.
   4.2 Aloque matrizes de tempo específicos para cada matéria, levando em consideração os horários e compromissos do usuário.
   4.3 Inclua intervalos para descanso e atividades pessoais para manter o equilíbrio na rotina.
+
+=======================================================================================================================================
+
+Objetivos para finalizar
+
+1- Colocar as funções preenchendoHorariodeaula e preenchendomaterias em um arquivo e chama-los no main.
+2- Colocar os dados do tópico "Lendo dados iniciais do usuario" em uma struct , coloca-lo em um arquivo e chama-lo no main.
+3- Fazer uma função para "Impressao da Matriz" e colocar em um arquivo e chama-lo no main.
+    fazendo um if else para cada turno arrumando em cada condição os espaços das matriz para encaixar no terminal.
+4- Fazer uma função para a parte matematica de pontos para aprovação , deixando no main.
+5- Fazer uma função para a media de pontos  , deixando no main.
