@@ -1,22 +1,62 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
+#include "alunos.h" 
+#include "rotinas.h"
 
+//=============================================Função para leitura de dados do aluno=============================================================
+typedef struct 
+{
+    char nome[50];
+    int idade;
+    int turno;
+}aluno;
+
+void dadosAluno(aluno *dados){
+    printf("Digite seu nome: ");
+    fgets(dados->nome, sizeof(dados->nome), stdin);
+    dados->nome[strcspn(dados->nome, "\n")] = '\0'; 
+
+    printf("Digite sua idade: ");
+    scanf("%d", &(dados->idade));
+
+    printf("Olá, %s, preciso que informe o turno em que estuda (1 para manhã, 2 para tarde, 3 para noite): ", dados->nome);
+    scanf("%d", &(dados->turno));
+}
+
+//=============================================Função para salvar dados em Arquivo==============================================================
+
+void salvarDadosAluno(aluno dados) {
+    FILE *arquivo = fopen("dadosAluno.txt", "w");
+
+    if (arquivo == NULL) {
+        fprintf(stderr, "Erro ao abrir o arquivo.\n");
+        exit(1);
+    }
+
+    fprintf(arquivo, "Nome: %s\n", dados.nome);
+    fprintf(arquivo, "Idade: %d\n", dados.idade);
+    fprintf(arquivo, "Turno: %d\n", dados.turno);
+
+    fclose(arquivo);
+
+    printf("Dados do aluno foram salvos em dadosAluno.txt\n");
+}
 
 //=============================================Função para adicionar o horario de aula===================================================
-void preenchendoHorariodeaula(int rotina[][17], int dia, int turno) {
+void preenchendoHorariodeaula(int rotina[][17], int dia, aluno dados) {
     for (int j = 0; j < 17; j++){
-        if(turno == 1){
+        if(dados.turno == 1){
             if (j >= 1 && j < 6){
                 rotina[dia][j] = -1;
             }
         }  
-        if(turno == 2){
+        if(dados.turno == 2){
             if (j >= 7 && j < 12){
                 rotina[dia][j] = -1;
             } 
         }   
-        if(turno == 3){
+        if(dados.turno == 3){
             if (j >= 11 && j < 16){
                 rotina[dia][j] = -1;
             }
@@ -24,16 +64,16 @@ void preenchendoHorariodeaula(int rotina[][17], int dia, int turno) {
      }
   } 
 //================================================Função para adicionar as materias====================================================
-void preenchendomaterias(int rotina[5][16], int turno, int numMaterias) {
+void preenchendomaterias(int rotina[5][16], aluno dados, int numMaterias) {
     srand(time(NULL));
 
     for (int i = 0; i < 6; i++) {
         for (int j = 0; j < 16; j++) {
-            if (turno == 1 && (j > 6 && j < 16)) {
+            if (dados.turno == 1 && (j > 6 && j < 16)) {
                 rotina[i][j] = rand() % numMaterias + 1;
-            } else if (turno == 2 && ((j >= 1 && j <= 5) || (j > 11 && j < 16))) {
+            } else if (dados.turno == 2 && ((j >= 1 && j <= 5) || (j > 11 && j < 16))) {
                 rotina[i][j] = rand() % numMaterias + 1;
-            } else if (turno == 3 && (j >= 1 && j <= 5) || (j >= 7 && j <= 11)) {
+            } else if (dados.turno == 3 && (j >= 1 && j <= 5) || (j >= 7 && j <= 11)) {
                 rotina[i][j] = rand() % numMaterias + 1;
             }
         }
@@ -41,8 +81,6 @@ void preenchendomaterias(int rotina[5][16], int turno, int numMaterias) {
 }
 //===============================================Iniciando nossa tabela de horarios===================================================
 int main() {
-    char nome[50];
-    int idade;
     int d = 5, h = 17; // 5 dias da semana, 19 horas do dia
     int rotina[d][h];
     
@@ -55,16 +93,15 @@ int main() {
 
 //==================================================Lendo dados iniciais do usuario====================================================
     printf("-Seja bem vindo(a) ao seu suporte de horario para estudo\n");
-    printf("-Digite seu nome:\n");
-    scanf("%s", nome);
+    aluno dados;
+    dadosAluno(&dados);
+    salvarDadosAluno(dados);
 
-    int turno;
-    printf("-Ola %s, Para comecarmos, preciso saber em qual turno você estuda?\n-Digite 1 para manha, 2 para tarde ou 3 para noite:\n", nome);
-    scanf("%d", &turno);
 
-    while (turno != 1 && turno != 2 && turno != 3) {
+    while (dados.turno != 1 && dados.turno != 2 && dados.turno != 3) {
         printf("-Digite um valor valido.\n");
     }
+
     int numMaterias;
     int not;
 
@@ -109,9 +146,9 @@ int main() {
 
 //==========================================Adicionando as materias na matriz tabela====================================================
 
-    preenchendomaterias(rotina, turno, numMaterias);
+    preenchendomaterias(rotina, dados, numMaterias);
     for(int i = 0; i < d; i++){
-    preenchendoHorariodeaula(rotina, i, turno);
+    preenchendoHorariodeaula(rotina, i, dados);
 }
 
 //==============================================Impressao da Matriz=============================================
