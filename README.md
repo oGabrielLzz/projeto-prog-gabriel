@@ -36,9 +36,13 @@ Passo 4: Geração de Plano de Estudos
 
 Objetivos para finalizar
 
-1- Colocar as funções preenchendoHorariodeaula e preenchendomaterias em um arquivo e chama-los no main.
+1- Colocar as funções preenchendoHorariodeaula e preenchendomaterias em um arquivo e chama-los no main. (FEIO MAS REVISAR)
 2- Colocar os dados do tópico "Lendo dados iniciais do usuario" em uma struct , coloca-lo em um arquivo e chama-lo no main. (FEITO)
-3- Fazer uma função para "Impressao da Matriz" e colocar em um arquivo e chama-lo no main.
+3- Fazer uma função para "Impressao da Matriz" e colocar em um arquivo e chama-lo no main. 
     fazendo um if else para cada turno arrumando em cada condição os espaços das matriz para encaixar no terminal.
-4- Fazer uma função para a parte matematica de pontos para aprovação , deixando no main. (FEITO)
+
+
+Discutido e decidido desnecessário:
+
+4- Fazer uma função para a parte matematica de pontos para aprovação , deixando no main. 
 5- Fazer uma função para a media de pontos  , deixando no main.
