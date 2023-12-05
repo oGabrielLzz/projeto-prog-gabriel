@@ -6,9 +6,9 @@ Matrícula - 5800
 Daniel Melo
 Matrícula - 3984
 
-Tema Projeto a ser abordado "Planejamento diário de rotina e estudos" ( não confirmado )
+Tema Projeto a ser abordado "Planejamento diário de rotina e estudos"
 
-Obj: 
+Obj:
 Passo 1: Coleta de Informações Iniciais
 
   1.1 Desenvolva um sistema de cadastro/login (nome) para os usuários.
