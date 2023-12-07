@@ -1,21 +1,17 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 #include "alunos.h"
 
-typedef struct {
-    char nome[50];
-    int idade;
-    int turno;
-} aluno;
-
 void dadosAluno(aluno *dados) {
-     printf("Digite seu nome: ");
+    printf("Digite seu nome: ");
     fgets(dados->nome, sizeof(dados->nome), stdin);
     dados->nome[strcspn(dados->nome, "\n")] = '\0'; 
 
     printf("Digite sua idade: ");
     scanf("%d", &(dados->idade));
 
-    printf("Olá, %s, preciso que informe o turno em que estuda (1 para manhã, 2 para tarde, 3 para noite): ", dados->nome);
+    printf("Ola, %s, preciso que informe o turno em que estuda (1 para manha, 2 para tarde, 3 para noite): ", dados->nome);
     scanf("%d", &(dados->turno));
 }
 

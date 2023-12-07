@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <math.h>
 
-
 //=============================================Função para leitura de dados do aluno=============================================================
 typedef struct {
     char nome[50];
