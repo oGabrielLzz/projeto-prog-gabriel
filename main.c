@@ -1,30 +1,26 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
-#include "alunos.h" 
-#include "rotinas.h"
+
 
 //=============================================Função para leitura de dados do aluno=============================================================
-typedef struct 
-{
+typedef struct {
     char nome[50];
     int idade;
     int turno;
-}aluno;
+} aluno;
 
-void dadosAluno(aluno *dados){
-    printf("Digite seu nome: ");
+void dadosAluno(aluno *dados) {
+     printf("Digite seu nome: ");
     fgets(dados->nome, sizeof(dados->nome), stdin);
     dados->nome[strcspn(dados->nome, "\n")] = '\0'; 
 
     printf("Digite sua idade: ");
     scanf("%d", &(dados->idade));
 
-    printf("Olá, %s, preciso que informe o turno em que estuda (1 para manhã, 2 para tarde, 3 para noite): ", dados->nome);
+    printf("Ola, %s, preciso que informe o turno em que estuda (1 para manha, 2 para tarde, 3 para noite): ", dados->nome);
     scanf("%d", &(dados->turno));
 }
-
-//=============================================Função para salvar dados em Arquivo==============================================================
 
 void salvarDadosAluno(aluno dados) {
     FILE *arquivo = fopen("dadosAluno.txt", "w");
@@ -44,6 +40,7 @@ void salvarDadosAluno(aluno dados) {
 }
 
 //=============================================Função para adicionar o horario de aula===================================================
+
 void preenchendoHorariodeaula(int rotina[][17], int dia, aluno dados) {
     for (int j = 0; j < 17; j++){
         if(dados.turno == 1){
@@ -63,7 +60,10 @@ void preenchendoHorariodeaula(int rotina[][17], int dia, aluno dados) {
         } 
      }
   } 
+
+
 //================================================Função para adicionar as materias====================================================
+
 void preenchendomaterias(int rotina[5][16], aluno dados, int numMaterias) {
     srand(time(NULL));
 
@@ -79,6 +79,7 @@ void preenchendomaterias(int rotina[5][16], aluno dados, int numMaterias) {
         }
     }
 }
+
 //===============================================Iniciando nossa tabela de horarios===================================================
 int main() {
     int d = 5, h = 17; // 5 dias da semana, 19 horas do dia
@@ -108,7 +109,7 @@ int main() {
     printf("Diga quantas materias voce tem no momento:\n");
     scanf("%d",&numMaterias);
 
-    printf("Para calcularmos suas notas , Me diga quantas notas por materia voce ja tem\n");
+    printf("Para calcularmos suas notas , Me diga quantas notas por materia voce ja tem:\n");
     scanf("%d",&not);
 
     double notas[numMaterias][not];
@@ -137,7 +138,8 @@ int main() {
 
 
 //=================================================Amostra do resultado das notas========================================================= 
-
+    printf("\n");
+    printf("_____________________________________________________________________________________");
      printf("\n");  
       printf("\nPrioridade de materias:\n");
     for (int i = 0; i < numMaterias; i++) {
@@ -152,7 +154,7 @@ int main() {
 }
 
 //==============================================Impressao da Matriz=============================================
-
+ printf("_____________________________________________________________________________________");
  printf("\n");
     // Dias da semana
     char *dias_semana[] = {"Segunda", "Terca", "Quarta", "Quinta", "Sexta"};
@@ -176,12 +178,16 @@ int main() {
         printf("\n");
     }
      printf("\n");
-    printf("Tabela de orientação da matriz:\n"
+     printf("_____________________________________________________________________________________");
+    printf("\n");
+    printf("Tabela de orientacao da matriz:\n"
            " 0 - tempolivre\n"
            "-1 - horario da escola\n"
            " 1 - primeira materia que precisa de mais estudo\n"
            " 2 - segunda materia que precisa de mais estudo\n"
-           " 3 - terceira materia que precisa de mais estudo\n");
+           " 3 - terceira materia que precisa de mais estudo\n"
+           " Assim por diante."
+           );
 
     return 0;
 }

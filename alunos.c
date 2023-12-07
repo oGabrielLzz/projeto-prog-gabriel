@@ -1,6 +1,12 @@
 #include <stdio.h>
 #include "alunos.h"
 
+typedef struct {
+    char nome[50];
+    int idade;
+    int turno;
+} aluno;
+
 void dadosAluno(aluno *dados) {
      printf("Digite seu nome: ");
     fgets(dados->nome, sizeof(dados->nome), stdin);
