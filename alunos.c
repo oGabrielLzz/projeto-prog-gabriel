@@ -1,7 +1,7 @@
+#include "alunos.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "alunos.h"
 
 void dadosAluno(aluno *dados) {
     printf("Digite seu nome: ");
